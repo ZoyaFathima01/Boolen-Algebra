@@ -1,0 +1,59 @@
+Original Equation
+F = A'B'C' + A'B'C + A'BC + AB'C + ABC'
+
+Step 1: Group Terms with common factors
+  First three terms: 
+  A'B'C' + A'B'C + A'BC
+
+  Last two terms: 
+  AB'C + ABC'
+
+Step 2: Factor Common Elemetns: 
+  First Group
+       A'B'C' + A'B'C = A'B'(C' + C) = A'B' (since C' + C = 1)
+       Now, A'B' + A'BC
+  Combine remaining of the First Group
+        A'B' + A'BC = A'(B' + BC)
+        B' + BC = (B' + B)(B' + C) = 1·(B' + C) = B' + C
+        So, A'(B' + C)
+
+  Second Group
+        AB'C + ABC'
+
+This can be combined using consensus theorem: 
+        AB'C + ABC' = A(B'C + BC') = A(B ⊕ C)
+
+Step 3: Final simplified Expression
+  Combine both parts: 
+        F = A'(B' + C) + A(B ⊕ C)
+        (This is wehere ⊕ is XOR
+
+Motion-sensing Light Equation
+Inputs: 
+  m: motion sensed 
+  t: test mode
+
+Outputs: 
+  i: illuminate lamp 
+
+Goal: 
+1. Motion is sensed and not in test mode --> m*t'
+2. Test mode ON and no motion --> t*m'
+3. Test mode ON and motion is ON --> t*m
+
+Step 1: Full Boolen equation: 
+          i = mt' + tm' + tm
+
+Step 2: Group and simplify 
+  Group: 
+          tm' + tm = t(m'+ m)
+  Complement Law: 
+          m' + m = 1 
+  So: 
+          t(m' + m) = t(1) = t
+
+Step 3: Final simplified expression
+  Plug back to the original
+          i = mt' + t 
+
+Simplified Equation: i = m * t' + t
